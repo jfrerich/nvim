@@ -1,0 +1,70 @@
+{
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.hoverTarget": "echo",
+  "coc.preferences.promptInput": "false",
+  "list.nextKeymap": "<C-n>",
+  "list.previousKeymap": "<C-p>",
+  "list.maxHeight": 20,
+  "list.insertMappings": {
+    "<C-c>": "do:exit"
+  },
+  "explorer": {
+    "position": "left",
+    "openAction.for.directory": "",
+    "icon" : {
+      "enableVimDevions": true,
+      "enableNerdfont": true
+    }
+  },
+  "suggest": {
+    "noselect": false,
+    "preferCompleteThanJumpPlaceholder": true,
+    "echodocSupport": true,
+    "floatEnable": true
+  },
+  "cSpell.enabled": false,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.messageTarget": "float",
+
+  "signature.enable": true,
+  "signature.target": "echo",
+  "signature.triggerSignatureWait": 300,
+
+  "snippets.userSnippetsDirectory": "~/.vim/mysnippets",
+  "snippets.priority": "100",
+  "snippets.extends": {
+    "javascriptreact": ["typescript"],
+    "javascript": ["typescript"],
+    "typescript.tsx": ["typescript"],
+    "typescriptreact": ["typescript"]
+  },
+  "eslint.autoFixOnSave": true,
+  "stylelintplus.autoFixOnSave": true,
+  "jest.watch": true,
+  "jest.watchman": true,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    },
+     "efm": {
+      "command": "efm-langserver",
+      "args": [],
+      "filetypes": ["vim", "eruby", "vimwiki"]
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh", "zsh"],
+      "ignoredRootPaths": ["~"]
+    }
+  },
+  "markdownlint.config": {
+      "line_length": false
+  },
+  "pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`"],
+  "pairs.enableBackspace": true,
+  "yank.highlight.enable": false
+}
+

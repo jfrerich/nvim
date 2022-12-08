@@ -5,16 +5,16 @@
 "/___/_/ /_/_/\__(_)___/_/_/ /_/ /_/
 
 
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
+" set runtimepath^=~/.vim runtimepath+=~/.vim/after
+set runtimepath^=~/.config/nvim/.vim runtimepath+=~/.config/nvim/.vim/after
 set number
 let &packpath = &runtimepath
-source ~/.config/nvim/vimrc.vim
+source $HOME/.config/nvim/vimrc.vim
 
 if exists(':GuiFont')
     GuiFont! 'Hack\ Nerd\ Font:h14'
 endif
 
-" colorscheme onedark " apply after setting let g:space_vim_dark
 colorscheme tokyonight " apply after setting let g:space_vim_dark
 
 lua <<EOF

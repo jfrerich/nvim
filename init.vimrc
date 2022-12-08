@@ -14,7 +14,7 @@ set nofoldenable
 " set guifont=DroidSansMono\ Nerd\ Font:h12                     
 " set guifont=Ubuntu\ Mono\ Bold\ Nerd\ Font\ Complete\ Mono\ 12
 " set guifont=DejaVuSansMonoPowerline:h11
-set guifont=HackNerdFontComplete-Regular:h14
+" set guifont=HackNerdFontComplete-Regular:h14
 
 " if (has("termguicolors"))
 "     set termguicolors
@@ -86,8 +86,8 @@ set iskeyword+=@ "add to iskeywords to help find dspf hierarchical names
 "set iskeyword+=! "add to iskeywords to help find dspf hierarchical names
 
 " Use persistent history.
-if !isdirectory("$HOME/.config/nvim/.vim-undo-dir")
-    call mkdir("$HOME/.config/nvim/.vim-undo-dir", "", 0700)
-endif
+" if !isdirectory("$HOME/.config/nvim/.vim-undo-dir")
+"     call mkdir("$HOME/.config/nvim/.vim-undo-dir", "", 0700)
+" endif
 set undodir=$HOME/.config/nvim/.vim-undo-dir
 set undofile

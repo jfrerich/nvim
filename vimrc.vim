@@ -1,7 +1,7 @@
-source $HOME/init.vimrc
-source $HOME/plugins.vimrc
-source $HOME/plugin_settings.vimrc
-source $HOME/keys.vimrc
+source $HOME/.config/nvim/init.vimrc
+source $HOME/.config/nvim/plugins.vimrc
+source $HOME/.config/nvim/plugin_settings.vimrc
+source $HOME/.config/nvim/keys.vimrc
 
 " --- Highlights
 " highlight Folded guibg=darkgrey guifg=grey
@@ -10,7 +10,7 @@ source $HOME/keys.vimrc
 " if has("gui_running")
     let g:space_vim_dark_background = 233
     " colorscheme space-vim-dark " apply after setting let g:space_vim_dark
-    colorscheme one " apply after setting let g:space_vim_dark
+    " colorscheme one " apply after setting let g:space_vim_dark
     " colorscheme onedark " apply after setting let g:space_vim_dark
     " autocmd BufEnter *.go colorscheme space-vim-dark
     " colorscheme one " apply after setting let g:space_vim_dark
