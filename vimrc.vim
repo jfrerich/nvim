@@ -48,7 +48,7 @@ autocmd VimResized * wincmd =
 "####################################
 " my Plugins and key maps for myplugins
 "####################################
-source ~/.vim/myplugins/*.vim
+source $HOME/.config/nvim/myplugins/*.vim
 "map  :call PrintVariables_Vim()<CR>
 
 " allow for a user of vim folds to save and open folds when reopen the file
