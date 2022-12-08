@@ -85,7 +85,9 @@ set iskeyword+=/ "add to iskeywords to help find dspf hierarchical names
 set iskeyword+=@ "add to iskeywords to help find dspf hierarchical names
 "set iskeyword+=! "add to iskeywords to help find dspf hierarchical names
 
-if has('persistent_undo')
-  set undofile
-  set undodir=$HOME/.config/nvim/.vim_undodir
+" Use persistent history.
+if !isdirectory("$HOME/.config/nvim/.vim-undo-dir")
+    call mkdir("$HOME/.config/nvim/.vim-undo-dir", "", 0700)
 endif
+set undodir=$HOME/.config/nvim/.vim-undo-dir
+set undofile
