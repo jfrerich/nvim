@@ -4,7 +4,10 @@ filetype off
 
 set rtp+=/usr/local/opt/fzf
 
-call plug#begin('$HOME/.config/nvim/plugged')
+" call plug#begin('$HOME/.config/nvim/plugged')
+" call plug#begin(stdpath('config') . 'plugged')
+call plug#begin(stdpath('data') . '/plugged')
+" call plug#begin()
 
 " --- Autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -23,7 +26,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tomtom/tComment_vim'
 " Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
-" Plug 'kien/rainbow_parentheses.vim'
+Plug 'kien/rainbow_parentheses.vim'
 " Plug 'mhinz/vim-startify'
 " Automatically clear search highlights after move your cursor
 " Plug 'haya14busa/is.vim'
@@ -36,7 +39,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'preservim/tagbar'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'junegunn/fzf.vim', { 'do': 'yes \| ./install' }
-Plug 'fszymanski/fzf-quickfix', {'on': 'Quickfix'}
+" Plug 'fszymanski/fzf-quickfix', {'on': 'Quickfix'}
 Plug 'antoinemadec/coc-fzf'
 " Plug 'kien/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
@@ -105,6 +108,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'benknoble/vim-auto-origami'
 " Plug 'shougo/echodoc'
 Plug 'neoclide/jsonc.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 " --- Maybe use in the future
 " Plug editorconfig/editorconfig-vim --> set indent, tab_with for all " editors
