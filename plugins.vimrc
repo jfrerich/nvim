@@ -60,7 +60,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'christianchiarulli/nvcode-color-schemes.vim'
 " Plug 'tamelion/neovim-molokai'
 " Plug 'olimorris/onedarkpro.nvim' 
-" Plug 'lewis6991/gitsigns.nvim'
+Plug 'lewis6991/gitsignsvim'
 " Plug 'mhartington/oceanic-next'
 " Plug 'ellisonleao/gruvbox.nvim'
 " Plug 'patstockwell/vim-monokai-tasty'
@@ -97,7 +97,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'will133/vim-dirdiff'
 " inline git gutter changes
 " Plug 'mhinz/vim-signify'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 " --- Themes
 " Plug 'liuchengxu/space-vim-dark'
 " Plug 'rakr/vim-one'
