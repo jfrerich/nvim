@@ -60,7 +60,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'christianchiarulli/nvcode-color-schemes.vim'
 " Plug 'tamelion/neovim-molokai'
 " Plug 'olimorris/onedarkpro.nvim' 
-Plug 'lewis6991/gitsignsvim'
+Plug 'lewis6991/gitsigns.nvim'
 " Plug 'mhartington/oceanic-next'
 " Plug 'ellisonleao/gruvbox.nvim'
 " Plug 'patstockwell/vim-monokai-tasty'
