@@ -26,7 +26,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tomtom/tComment_vim'
 " Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
-Plug 'kien/rainbow_parentheses.vim'
+Plug 'p00f/nvim-ts-rainbow'
 " Plug 'mhinz/vim-startify'
 " Automatically clear search highlights after move your cursor
 " Plug 'haya14busa/is.vim'
@@ -45,6 +45,8 @@ Plug 'antoinemadec/coc-fzf'
 Plug 'easymotion/vim-easymotion'
 " Plug 'tpope/vim-projectionist'
 
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+
 " --- Language Agnostic
 " Plug 'AndrewRadev/splitjoin.vim'
 " ---   perl
@@ -56,6 +58,11 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'buoto/gotests-vim'
 " ---   js, jsx, typescript
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'RRethy/nvim-treesitter-textsubjects'
+Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
+
 " Plug 'projekt0n/github-nvim-theme'
 " Plug 'christianchiarulli/nvcode-color-schemes.vim'
 " Plug 'tamelion/neovim-molokai'
@@ -65,6 +72,7 @@ Plug 'lewis6991/gitsigns.nvim'
 " Plug 'ellisonleao/gruvbox.nvim'
 " Plug 'patstockwell/vim-monokai-tasty'
 Plug 'folke/tokyonight.nvim'
+Plug 'mofiqul/dracula.nvim'
 " Plug 'edenEast/nightfox.nvim'
 
 Plug 'neovim/nvim-lspconfig'

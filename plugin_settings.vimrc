@@ -54,6 +54,8 @@ augroup go
   "
 augroup END
 
+nnoremap <silent> <leader>      :<c-u>WhichKey ','<CR>
+
 " use only quickfix list, never location list
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
@@ -103,6 +105,8 @@ let g:test#go#richgo#options = '-v'
 " vim-asterisk
 let g:asterisk#keeppos = 1
 
+let g:neovide_cursor_trail_size = 0.3
+
 " python-mode
 "####################################
 " Updating Python Mode can cause it to break and I've done it multiple
@@ -110,9 +114,6 @@ let g:asterisk#keeppos = 1
 " folder from Time Machine backup.
 " supposedly, the following pinned command will tell vundle to not update this
 " folder again, if PluginUpdate is run
-" an
-let g:pymode_syntax = 1
-" let g:pymode_syntax_all = 1
 let g:pymode_motion = 1
 let g:pymode_lint = 1
 let g:pymode_lint_on_write = 1
@@ -330,33 +331,6 @@ map <Leader>k <Plug>(easymotion-k)
 " let g:prettier#autoformat = 0
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
-" rainbow_parenthesis
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-" RainbowParentheses does not work with Plugin 'pangloss/vim-javascript'
-" parenthesis aren't colored.  Works for all others and like the pangloss
-" syntax better than having colored parenlike the parenthesis more than vim-javascripts
-let g:rbpt_max = 16
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 " let g:poppy_point_enable = 1
 
 " cheat.sh
@@ -381,3 +355,146 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
 highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 
 " vim:foldmethod=marker:foldlevel=0
+
+
+lua <<EOF
+require('gitsigns').setup{
+  on_attach = function(bufnr)
+    local gs = package.loaded.gitsigns
+
+    local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
+
+    -- Navigation
+    map('n', ']c', function()
+      if vim.wo.diff then return ']c' end
+      vim.schedule(function() gs.next_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
+
+    map('n', '[c', function()
+      if vim.wo.diff then return '[c' end
+      vim.schedule(function() gs.prev_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
+
+    -- Actions
+    map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+    map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+    map('n', '<leader>hS', gs.stage_buffer)
+    map('n', '<leader>hu', gs.undo_stage_hunk)
+    map('n', '<leader>hR', gs.reset_buffer)
+    map('n', '<leader>hp', gs.preview_hunk)
+    map('n', '<leader>hb', function() gs.blame_line{full=true} end)
+    map('n', '<leader>tb', gs.toggle_current_line_blame)
+    map('n', '<leader>hd', gs.diffthis)
+    map('n', '<leader>hD', function() gs.diffthis('~') end)
+    map('n', '<leader>td', gs.toggle_deleted)
+
+    -- Text object
+    map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+  end
+}
+
+
+require 'nvim-treesitter.configs'.setup {
+  -- A list of parser names, or "all"
+  ensure_installed = { "typescript"},
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+  auto_install = true,
+
+  -- List of parsers to ignore installing (for "all")
+  ignore_install = { "javascript" },
+
+  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    disable = { "c", "rust" },
+    -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
+    disable = function(lang, buf)
+        local max_filesize = 100 * 1024 -- 100 KB
+        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+        if ok and stats and stats.size > max_filesize then
+            return true
+        end
+    end,
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+
+require("nvim-treesitter.configs").setup {
+  rainbow = {
+      enable = true,
+          -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+              extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+                  max_file_lines = nil, -- Do not enable for files with more than n lines, int
+                      -- colors = {}, -- table of hex strings
+                          -- termcolors = {} -- table of colour name strings
+                            
+  }
+}
+
+require'nvim-treesitter.configs'.setup {
+  textobjects = {
+    select = {
+      enable = true,
+
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
+
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        -- You can optionally set descriptions to the mappings (used in the desc parameter of
+        -- nvim_buf_set_keymap) which plugins like which-key display
+        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+      },
+      -- You can choose the select mode (default is charwise 'v')
+      --
+      -- Can also be a function which gets passed a table with the keys
+      -- * query_string: eg '@function.inner'
+      -- * method: eg 'v' or 'o'
+      -- and should return the mode ('v', 'V', or '<c-v>') or a table
+      -- mapping query_strings to modes.
+      selection_modes = {
+        ['@parameter.outer'] = 'v', -- charwise
+        ['@function.outer'] = 'V', -- linewise
+        ['@class.outer'] = '<c-v>', -- blockwise
+      },
+      -- If you set this to `true` (default is `false`) then any textobject is
+      -- extended to include preceding or succeeding whitespace. Succeeding
+      -- whitespace has priority in order to act similarly to eg the built-in
+      -- `ap`.
+      --
+      -- Can also be a function which gets passed a table with the keys
+      -- * query_string: eg '@function.inner'
+      -- * selection_mode: eg 'v'
+      -- and should return true of false
+      include_surrounding_whitespace = true,
+    },
+  },
+}
+EOF
