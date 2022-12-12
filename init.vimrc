@@ -9,6 +9,9 @@ set expandtab
 set nofoldenable
 set clipboard+=unnamedplus
 
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
 " set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline
 " set guifont=UbuntuMonoDerivativePowerline-Regular:h13
 " set guifont=InconsolataForPowerline-dz:h11
