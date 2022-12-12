@@ -7,7 +7,8 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 set nofoldenable
-" set clipboard+=unnamedplus
+set clipboard+=unnamedplus
+
 " set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline
 " set guifont=UbuntuMonoDerivativePowerline-Regular:h13
 " set guifont=InconsolataForPowerline-dz:h11
