@@ -339,14 +339,14 @@ let g:CheatSheetDefaultMode = 2
 let g:explDetailedList=1 " show delailed list of files (ie. size, date)
 let g:Perl_PerlRegexAnalyser = 'yes'
 
-" vim-gitgutter
-" don't overwrite other plugins signs
-let g:gitgutter_sign_priority=0
-let g:gitgutter_preview_win_floating=1
-let g:gitgutter_close_preview_on_escape=1
-highlight GitGutterAdd guifg=#009900 ctermfg=Green
-highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
-highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
+" " vim-gitgutter
+" " don't overwrite other plugins signs
+" let g:gitgutter_sign_priority=0
+" let g:gitgutter_preview_win_floating=1
+" let g:gitgutter_close_preview_on_escape=1
+" highlight GitGutterAdd guifg=#009900 ctermfg=Green
+" highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
+" highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
 
 " vim-signify
 "####################################
@@ -441,10 +441,7 @@ require 'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
-}
-
-require("nvim-treesitter.configs").setup {
-  rainbow = {
+   rainbow = {
       enable = true,
           -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
               extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
@@ -452,11 +449,8 @@ require("nvim-treesitter.configs").setup {
                       -- colors = {}, -- table of hex strings
                           -- termcolors = {} -- table of colour name strings
                             
-  }
-}
-
-require'nvim-treesitter.configs'.setup {
-  textobjects = {
+   },
+   textobjects = {
     select = {
       enable = true,
 
@@ -496,5 +490,14 @@ require'nvim-treesitter.configs'.setup {
       include_surrounding_whitespace = true,
     },
   },
+}
+
+require("whichkey_setup").config{
+    hide_statusline = false,
+        default_keymap_settings = {
+                  silent=true,
+                          noremap=true,
+                              },
+                                  default_mode = 'n',
 }
 EOF

@@ -1,22 +1,14 @@
-source $HOME/.config/nvim/init.vimrc
-source $HOME/.config/nvim/plugins.vimrc
+filetype plugin on
+syntax on
+filetype off
+
+luafile $HOME/.config/nvim/plugins.lua
 source $HOME/.config/nvim/plugin_settings.vimrc
 source $HOME/.config/nvim/keys.vimrc
+source $HOME/.config/nvim/myplugins/*.vim " my Plugins and key maps for myplugins
 
-" --- Highlights
-" highlight Folded guibg=darkgrey guifg=grey
-" highlight Folded ctermfg=141 ctermbg=234 guifg=#9a9aba guibg=#212026
+filetype plugin indent on
 
-" if has("gui_running")
-    let g:space_vim_dark_background = 233
-    " colorscheme space-vim-dark " apply after setting let g:space_vim_dark
-    " colorscheme one " apply after setting let g:space_vim_dark
-    " colorscheme onedark " apply after setting let g:space_vim_dark
-    " autocmd BufEnter *.go colorscheme space-vim-dark
-    " colorscheme one " apply after setting let g:space_vim_dark
-
-" highlight goFunction guifg=lightred 
-" endif
 hi Comment guifg=#5C6370 ctermfg=59
 hi Comment cterm=italic gui=italic
 hi Visual term=reverse cterm=reverse guibg=#454545
@@ -42,13 +34,8 @@ autocmd BufRead,BufNewFile *.tsx syntax match jsTest /.*test(.*/
 " Add some syntax highlighthing to jsx/tsx snapshots. xml does a decent job
 autocmd BufRead,BufNewFile *.tsx.snap,*.jsx.snap setlocal filetype=xml
 
-" Auto-resize splits when Vim gets resized.
-autocmd VimResized * wincmd =
+autocmd VimResized * wincmd = " Auto-resize splits when Vim gets resized.
 
-"####################################
-" my Plugins and key maps for myplugins
-"####################################
-source $HOME/.config/nvim/myplugins/*.vim
 "map  :call PrintVariables_Vim()<CR>
 
 " allow for a user of vim folds to save and open folds when reopen the file
