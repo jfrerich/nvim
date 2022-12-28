@@ -12,14 +12,6 @@ vim.cmd('source $HOME/.config/nvim/plugin_settings.vimrc')
 -- pull from vimrc.vim into this file 'init.lua'
 vim.cmd [[ colorscheme tokyonight-night ]]
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = false,
-    underline = true,
-    signs = true,
-  }
-)
-
 -- vim.cmd [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
 vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float({scope="line"})]]
 vim.cmd [[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]

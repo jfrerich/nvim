@@ -40,7 +40,6 @@ Plug 'vim-airline/vim-airline' -- status line
 Plug 'vim-airline/vim-airline-themes' -- status line themes
 
 Plug 'RRethy/nvim-treesitter-textsubjects'
-Plug 'neovim/nvim-lspconfig'
 Plug('glepnir/lspsaga.nvim', {branch = 'main'})
 Plug 'tpope/vim-fugitive' -- git
 Plug 'junegunn/gv.vim' -- git
@@ -53,7 +52,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'neoclide/jsonc.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'folke/tokyonight.nvim'
-Plug 'neovim/nvim-lspconfig'
 Plug 'HerringtonDarkholme/yats.vim'
 
 Plug 'mbbill/undotree'
