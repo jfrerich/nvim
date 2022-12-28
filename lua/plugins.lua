@@ -2,7 +2,7 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.local/share/nvim/plugged')
 
-Plug('neoclide/coc.nvim', {branch='release'}) -- Autocompletion
+-- Plug('neoclide/coc.nvim', {branch='release'}) -- Autocompletion
 Plug 'tpope/vim-repeat'
 Plug 'tomtom/tComment_vim'
 Plug 'tpope/vim-surround'
@@ -20,11 +20,13 @@ Plug('yuki-yano/fzf-preview.vim', {branch='release/rpc'})
 Plug('junegunn/fzf.vim', {['do'] = vim.fn['fzf#install']})
 Plug('junegunn/fzf') 
 
-Plug 'antoinemadec/coc-fzf'
+Plug 'nvim-tree/nvim-web-devicons' --  optional, for file icons
+Plug 'nvim-tree/nvim-tree.lua'
+
+-- Plug 'antoinemadec/coc-fzf'
 Plug 'easymotion/vim-easymotion'
 
-Plug 'liuchengxu/vim-which-key'
-Plug 'AckslD/nvim-whichkey-setup.lua'
+Plug 'folke/which-key.nvim'
 
 Plug('fatih/vim-go', {['do'] = vim.fn[':GoInstallBinaries']})
 Plug 'buoto/gotests-vim'
@@ -44,20 +46,41 @@ Plug 'tpope/vim-fugitive' -- git
 Plug 'junegunn/gv.vim' -- git
 Plug 'tpope/vim-rhubarb' --  needed for fugitive :Gbrowse
 
+Plug 'bergercookie/vim-debugstring'
 Plug 'will133/vim-dirdiff'
 Plug 'dbeniamine/cheat.sh-vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'benknoble/vim-auto-origami'
 Plug 'neoclide/jsonc.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'folke/tokyonight.nvim'
-Plug 'mofiqul/dracula.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'ianks/vim-tsx'
+
+Plug 'mbbill/undotree'
+
+--  LSP Support
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+
+--  Autocompletion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
+
+--  Snippets
+Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
+
+Plug 'VonHeikemen/lsp-zero.nvim'
+
+-- Plug 'mofiqul/dracula.nvim'
+-- Plug 'pangloss/vim-javascript'
+-- Plug 'leafgarland/typescript-vim'
+-- Plug 'maxmellon/vim-jsx-pretty'
 
 vim.call('plug#end')
 
@@ -68,7 +91,6 @@ vim.call('plug#end')
 --  Plug 'terryma/vim-multiple-cursors'
 --  Plug 'alvan/vim-closetag'
 --  Plug 'adelarsq/vim-matchit'
---  Plug 'mbbill/undotree'
 --  Plug 'mhinz/vim-startify'
 --  Automatically clear search highlights after move your cursor
 --  Plug 'haya14busa/is.vim'

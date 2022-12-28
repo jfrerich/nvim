@@ -107,36 +107,6 @@ let g:asterisk#keeppos = 1
 
 let g:neovide_cursor_trail_size = 0.3
 
-" python-mode
-"####################################
-" Updating Python Mode can cause it to break and I've done it multiple
-" times! The best fix I found is to restore an old copy of the bundle/python-mode
-" folder from Time Machine backup.
-" supposedly, the following pinned command will tell vundle to not update this
-" folder again, if PluginUpdate is run
-let g:pymode_motion = 1
-let g:pymode_lint = 1
-let g:pymode_lint_on_write = 1
-let g:pymode_lint_checkers = ['pyflakes', 'pep8']
-" let g:pymode_lint_checkers = ['pyflakes']
-" let g:pymode_lint_checkers = ['pylint']
-" disable whitespace before : check
-let g:pymode_lint_ignore = ['E203']
-let g:pymode_lint_ignore = ['E401']
-let g:pymode_run = 1
-let g:pymode_python = "python3"
-" Override go-to.definition key shortcut to Ctrl-]
-let g:pymode_rope_goto_definition_bind = "<C-]>"
-let g:pymode_rope = 1
-let g:pymode_doc = 1
-let g:ropevim_enable_shortcuts = 1
-" Override run current python file key shortcut to Ctrl-Shift-e
-" let g:pymode_run_bind = "<C-S-e>"
-" Override view python doc key shortcut to Ctrl-Shift-d
-" let g:pymode_doc_bind = "<C-S-d>"
-"let g:pymode_quickfix_maxheight = 6
-
-
 " SimpylFold
 " let g:SimpylFold_docstring_preview=1
 
@@ -233,21 +203,21 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd ColorScheme * highlight CocHighlightText ctermbg=LightMagenta guibg=LightBlue
-augroup mygroup
-  autocmd!
-  
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+" augroup mygroup
+"   autocmd!
+"   
+"   " Setup formatexpr specified filetype(s).
+"   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+"   " Update signature help on jump placeholder
+"   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+" augroup end
 
 " jaf use <c-n> <c-p> instead
-let g:coc_snippet_next = '<tab>'
-let g:coc_snippet_next = '<c-j>' " default of coc.nvim
-let g:coc_snippet_prev = '<c-k>' " default of coc.nvim
+" let g:coc_snippet_next = '<tab>'
+" let g:coc_snippet_next = '<c-j>' " default of coc.nvim
+" let g:coc_snippet_prev = '<c-k>' " default of coc.nvim
 
 " TAKEN DIRECTLY FROM https://github.com/neoclide/coc.nvim
 " if hidden is not set, TextEdit might fail.
@@ -339,15 +309,6 @@ let g:CheatSheetDefaultMode = 2
 let g:explDetailedList=1 " show delailed list of files (ie. size, date)
 let g:Perl_PerlRegexAnalyser = 'yes'
 
-" " vim-gitgutter
-" " don't overwrite other plugins signs
-" let g:gitgutter_sign_priority=0
-" let g:gitgutter_preview_win_floating=1
-" let g:gitgutter_close_preview_on_escape=1
-" highlight GitGutterAdd guifg=#009900 ctermfg=Green
-" highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
-" highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
-
 " vim-signify
 "####################################
 "This setting messes up snippets in jsx -> try fn snippet for example
@@ -355,149 +316,3 @@ let g:Perl_PerlRegexAnalyser = 'yes'
 highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 
 " vim:foldmethod=marker:foldlevel=0
-
-
-lua <<EOF
-require('gitsigns').setup{
-  on_attach = function(bufnr)
-    local gs = package.loaded.gitsigns
-
-    local function map(mode, l, r, opts)
-      opts = opts or {}
-      opts.buffer = bufnr
-      vim.keymap.set(mode, l, r, opts)
-    end
-
-    -- Navigation
-    map('n', ']c', function()
-      if vim.wo.diff then return ']c' end
-      vim.schedule(function() gs.next_hunk() end)
-      return '<Ignore>'
-    end, {expr=true})
-
-    map('n', '[c', function()
-      if vim.wo.diff then return '[c' end
-      vim.schedule(function() gs.prev_hunk() end)
-      return '<Ignore>'
-    end, {expr=true})
-
-    -- Actions
-    map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-    map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
-    map('n', '<leader>hS', gs.stage_buffer)
-    map('n', '<leader>hu', gs.undo_stage_hunk)
-    map('n', '<leader>hR', gs.reset_buffer)
-    map('n', '<leader>hp', gs.preview_hunk)
-    map('n', '<leader>hb', function() gs.blame_line{full=true} end)
-    map('n', '<leader>tb', gs.toggle_current_line_blame)
-    map('n', '<leader>hd', gs.diffthis)
-    map('n', '<leader>hD', function() gs.diffthis('~') end)
-    map('n', '<leader>td', gs.toggle_deleted)
-
-    -- Text object
-    map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-  end
-}
-
-
-require 'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all"
-  ensure_installed = { "typescript"},
-
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = true,
-
-  -- List of parsers to ignore installing (for "all")
-  ignore_install = { "javascript" },
-
-  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
-  highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
-
-    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-    -- the name of the parser)
-    -- list of language that will be disabled
-    disable = { "c", "rust" },
-    -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-    disable = function(lang, buf)
-        local max_filesize = 100 * 1024 -- 100 KB
-        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-        if ok and stats and stats.size > max_filesize then
-            return true
-        end
-    end,
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-   rainbow = {
-      enable = true,
-          -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-              extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-                  max_file_lines = nil, -- Do not enable for files with more than n lines, int
-                      -- colors = {}, -- table of hex strings
-                          -- termcolors = {} -- table of colour name strings
-                            
-   },
-   textobjects = {
-    select = {
-      enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
-
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        -- You can optionally set descriptions to the mappings (used in the desc parameter of
-        -- nvim_buf_set_keymap) which plugins like which-key display
-        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-      },
-      -- You can choose the select mode (default is charwise 'v')
-      --
-      -- Can also be a function which gets passed a table with the keys
-      -- * query_string: eg '@function.inner'
-      -- * method: eg 'v' or 'o'
-      -- and should return the mode ('v', 'V', or '<c-v>') or a table
-      -- mapping query_strings to modes.
-      selection_modes = {
-        ['@parameter.outer'] = 'v', -- charwise
-        ['@function.outer'] = 'V', -- linewise
-        ['@class.outer'] = '<c-v>', -- blockwise
-      },
-      -- If you set this to `true` (default is `false`) then any textobject is
-      -- extended to include preceding or succeeding whitespace. Succeeding
-      -- whitespace has priority in order to act similarly to eg the built-in
-      -- `ap`.
-      --
-      -- Can also be a function which gets passed a table with the keys
-      -- * query_string: eg '@function.inner'
-      -- * selection_mode: eg 'v'
-      -- and should return true of false
-      include_surrounding_whitespace = true,
-    },
-  },
-}
-
-require("whichkey_setup").config{
-    hide_statusline = false,
-        default_keymap_settings = {
-                  silent=true,
-                          noremap=true,
-                              },
-                                  default_mode = 'n',
-}
-EOF
