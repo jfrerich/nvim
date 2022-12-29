@@ -1,8 +1,3 @@
-map <S-q> :q<CR>   " doesn't work, use unimpaired mapings [q, ]q 
-
-" Alternate File 
-" nnoremap <leader>a :A<CR>
-" nnoremap <leader>a :cclose<CR>
 
 " quickfix 
 nnoremap <Leader>q :Quickfix<CR>
