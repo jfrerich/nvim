@@ -2,6 +2,8 @@ local lsp = require('lsp-zero')
 
 local set = vim.keymap.set
 set("n", "<leader>ac", '<cmd>lua vim.lsp.buf.code_action()<CR>')
+set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
+
 
 lsp.preset('recommended')
 lsp.ensure_installed({

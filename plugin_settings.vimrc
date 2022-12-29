@@ -123,7 +123,6 @@ function! AirlineInit()
   if !exists('g:airline_symbols')
       let g:airline_symbols = {}
   endif
-  let g:airline#extensions#coc#enabled = 1
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#buffer_nr_show = 1
 
@@ -157,71 +156,13 @@ function! AirlineInit()
   let g:airline_symbols.linenr = '☰'
   let g:airline_symbols.maxlinenr = ''
 
-  " set statusline+=%{coc#status()}%{get(b:,'coc_current_function','')}
   " less useful.  Free up this space on the status line
   let g:airline_section_x='' " file encoding
   let g:airline_section_y='' " file encoding
   let g:airline_section_z='' " filetype
-  " let g:airline_section_y=%{get(b:,'coc_current_function','')}
-  " let g:airline_section_y='jason'%{coc#status()}
-  " let g:airline_section_y+=%{coc#status()}%{get(b:,'coc_current_function','')}
-  " let g:airline_section_y+=%{coc#status()}%{get(b:,'coc_current_function','')}
-  " let g:airline_section_y=cocstatusline
 endfunction
 
 autocmd VimEnter * call AirlineInit()
-
-" coc.vim
-" let g:coc_node_path = '/usr/local/Cellar/node/18.7.0/bin/node' " not needed anymore
-" coc config extensions to install when they aren't already installed
-" \ 'coc-spell-checker',
-let g:coc_global_extensions = [
-  \ 'coc-eslint',
-  \ 'coc-tsserver',
-  \ 'coc-jest',
-  \ 'coc-ultisnips',
-  \ 'coc-json',
-  \ 'coc-css',
-  \ 'coc-python',
-  \ 'coc-yaml',
-  \ 'coc-stylelintplus',
-  \ 'coc-snippets',
-  \ 'coc-pairs',
-  \ 'coc-marketplace',
-  \ 'coc-json',
-  \ 'coc-lists',
-  \ 'coc-jest',
-  \ 'coc-fzf-preview',
-  \ 'coc-explorer',
-  \ 'coc-react-refactor',
-  \ 'coc-markdownlint',
-  \ 'coc-css',
-  \ ]
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" autocmd CursorHold * silent call CocActionAsync('highlight')
-" autocmd ColorScheme * highlight CocHighlightText ctermbg=LightMagenta guibg=LightBlue
-" augroup mygroup
-"   autocmd!
-"   
-"   " Setup formatexpr specified filetype(s).
-"   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-"   " Update signature help on jump placeholder
-"   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-" augroup end
-
-" jaf use <c-n> <c-p> instead
-" let g:coc_snippet_next = '<tab>'
-" let g:coc_snippet_next = '<c-j>' " default of coc.nvim
-" let g:coc_snippet_prev = '<c-k>' " default of coc.nvim
-
-" TAKEN DIRECTLY FROM https://github.com/neoclide/coc.nvim
-" if hidden is not set, TextEdit might fail.
-" set hidden
 
 " Some servers have issues with backup files, see #649
 set nobackup

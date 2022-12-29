@@ -2,7 +2,6 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.local/share/nvim/plugged')
 
--- Plug('neoclide/coc.nvim', {branch='release'}) -- Autocompletion
 Plug 'tpope/vim-repeat'
 Plug 'tomtom/tComment_vim'
 Plug 'numToStr/Comment.nvim'
@@ -26,7 +25,6 @@ Plug('ibhagwan/fzf-lua')
 Plug 'nvim-tree/nvim-web-devicons' --  optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
 
--- Plug 'antoinemadec/coc-fzf'
 Plug 'easymotion/vim-easymotion'
 
 Plug 'folke/which-key.nvim'
