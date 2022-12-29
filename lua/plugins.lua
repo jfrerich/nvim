@@ -5,6 +5,8 @@ vim.call('plug#begin', '~/.local/share/nvim/plugged')
 -- Plug('neoclide/coc.nvim', {branch='release'}) -- Autocompletion
 Plug 'tpope/vim-repeat'
 Plug 'tomtom/tComment_vim'
+Plug 'numToStr/Comment.nvim'
+
 Plug 'tpope/vim-surround'
 Plug 'p00f/nvim-ts-rainbow'
 
@@ -19,6 +21,7 @@ Plug 'preservim/tagbar'
 Plug('yuki-yano/fzf-preview.vim', { branch = 'release/rpc' })
 Plug('junegunn/fzf.vim', { ['do'] = vim.fn['fzf#install'] })
 Plug('junegunn/fzf')
+Plug('ibhagwan/fzf-lua')
 
 Plug 'nvim-tree/nvim-web-devicons' --  optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'

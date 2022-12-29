@@ -3,25 +3,10 @@
 vim.g.mapleader = ","
 local set = vim.keymap.set
 
-set("n", ';', '<cmd>Buffers<CR>')
-
 set("n", "ge", '<cmd>NvimTreeToggle<CR>')
-set("n", "<leader>ac", '<cmd>lua vim.lsp.buf.code_action()<CR>')
 
 -- -- " terminal commands
 -- " tnoremap <Esc> <C-\><C-n>
-
--- vim-fugitive
-set("n", "<leader>ga", '<cmd>Gwrite<CR>')
-set("n", "<leader>gc", '<cmd>Gcommit<CR>')
-set("n", "<leader>gp", '<cmd>Git push<CR>')
-set("n", "<leader>gs", '<cmd>Git<CR>')
-set("n", "<leader>gb", '<cmd>Git blame<CR>')
-set("n", "<leader>gd", '<cmd>Gvdiffsplit<CR>')
--- -- " add command and key map to force push git changes. (used after fugitive ce
--- -- " command to edit last commit)
--- command Gpushforcewithlease :Gpush --force-with-lease
--- nnoremap <leader>gpf :Gpushforcewithleas<CR>
 
 -- Split Navigations
 set("n", "<C-J>", "<C-W><C-J>")
@@ -33,28 +18,6 @@ set("n", "<C-H>", "<C-W><C-H>")
 set("n", '<leader>h', '<cmd>split<CR>')
 set("n", '<leader>v', '<cmd>vsplit<CR>')
 
--- fzf.vim
-set("n", "<leader>/", "<cmd>Rg<CR>")
-set("n", "<leader><space>", "<cmd>Files<CR>")
-set("n", "<leader>bD", "<cmd>BD<CR>")
-
-
--- CANNOT GET Cword to work
--- vim.keymap.set("n", "<leader>rg", "<cmd>Rg<C-r><C-w><CR>")
--- vim.keymap.set("n", "<leader>rg", '<cmd>Rg<C-r><cword><CR>')
--- vim.keymap.set("n", "<leader>rg", '<cmd>Rg <C-R>' . expand('<cword>')')
--- vim.keymap.set("n", "<leader>rg", ['<cmd>Rg' . expand('<cword>') . '<CR>'])
--- vim.keymap.set("n", "<Leader>rg", "<cmd>Rg<C-R><C-W><CR>")
--- -- " nnoremap <silent> <leader><space> :FzfPreviewProjectFiles<CR>
--- -- " nnoremap <silent> <leader><space> :Files<CR>
--- -- " nmap <Leader>f [fzf-p]
--- -- " xmap <Leader>f [fzf-p]
--- -- " nnoremap ; :CocCommand fzf-preview.Buffers<CR>
--- -- " nnoremap <silent> [fzf-p]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
--- -- " nnoremap <silent> <leader>/ :Rg <CR>
--- -- " nnoremap <silent> [fzf-p]/     :<C-u>FzfPreviewLinesRpc --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
--- -- " nnoremap <silent> [fzf-p]*     :<C-u>FzfPreviewLinesRpc --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
---
 -- Keep cursor at the bottom of the visual selection after you yank it.
 set("v", 'y', 'ygv<Esc>')
 
@@ -95,39 +58,24 @@ set('v', '>', '>gv') -- better indentation.  doesn't lose visual selection
 -- nmap <silent> t<C-l> :TestLast<CR>
 -- nmap <silent> t<C-g> :TestVisit<CR>
 --
--- " coc.vim
--- " Use `[c` and `]c` to navigate diagnostics -> conflicts with [c c] with git
--- " gutter traversing
--- " nmap <silent> [c <Plug>(coc-diagnostic-prev)
--- " nmap <silent> ]c <Plug>(coc-diagnostic-next)
 --
 -- " Use <CR> to confirm completion, use: >
 -- inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 --
--- " let g:coc_snippet_next = '<tab>'
---
--- " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
--- " Coc only does snippet and additional edit on confirm.
--- " Or use `complete_info` if your vim support it, like:
--- " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 --
 -- " Use `[g` and `]g` to navigate diagnostics
 -- nmap <silent> [g <Plug>(coc-diagnostic-prev)
 -- nmap <silent> ]g <Plug>(coc-diagnostic-next)
 --
 -- " Remap keys for gotos
--- nmap <silent> gd <Plug>(coc-definition)
 -- nmap <silent> gy <Plug>(coc-type-definition)
 -- nmap <silent> gi <Plug>(coc-implementation)
--- nmap <silent> gr <Plug>(coc-references)
 --
 -- " use leader leader to open CocCommand in CocFzf view
 -- nmap <silent> <leader><leader> :<C-u>CocFzfList<CR>
 -- nmap <silent> <leader>b        :<C-u>CocFzfList diagnostics --current-buf<CR>
 --
--- " Use K to show documentation in preview window
--- nnoremap <silent> K :call <SID>show_documentation()<CR>
---
+
 -- " Highlight symbol under cursor on CursorHold
 -- " The color is too dark, use vim-go for now
 -- " autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -171,15 +119,6 @@ set('v', '>', '>gv') -- better indentation.  doesn't lose visual selection
 -- " nmap <silent> <C-d> <Plug>(coc-range-select)
 -- " xmap <silent> <C-d> <Plug>(coc-range-select)
 --
--- " Remap <C-f> and <C-b> for scroll float windows/popups.
--- if has('nvim-0.4.0') || has('patch-8.2.0750')
---   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
---   nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
---   inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
---   inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
---   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
---   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
--- endif
 --
 -- " Use `:Format` to format current buffer
 -- command! -nargs=0 Format :call CocAction('format')
@@ -194,21 +133,6 @@ set('v', '>', '>gv') -- better indentation.  doesn't lose visual selection
 -- " set statusline+=%{coc#status()}%{get(b:,'coc_current_function','')}
 -- " set statusline+="jason"
 --
--- " Using CocList
--- nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
--- nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
--- nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
--- " Find symbol of current document
--- nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
--- " Search workspace symbols
--- nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
--- " Do default action for next item.
--- nnoremap <silent> <space>j  :<C-u>CocNext<CR>
--- " Do default action for previous item.
--- nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
--- " Resume latest coc list
--- nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
---
 -- " coc-yank
 -- nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
 --
@@ -221,23 +145,6 @@ set('v', '>', '>gv') -- better indentation.  doesn't lose visual selection
 --   endif
 -- endfunction
 --
--- "FZF Buffer Delete
--- function! s:list_buffers()
---   redir => list
---   silent ls
---   redir END
---   return split(list, "\n")
--- endfunction
---
--- function! s:delete_buffers(lines)
---   execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
--- endfunction
---
--- command! BD call fzf#run(fzf#wrap({
---   \ 'source': s:list_buffers(),
---   \ 'sink*': { lines -> s:delete_buffers(lines) },
---   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
--- \ }))
 --
 -- augroup mygroup
 --   autocmd!
@@ -247,18 +154,5 @@ set('v', '>', '>gv') -- better indentation.  doesn't lose visual selection
 --   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 -- augroup end
 --
--- " Map <tab> for trigger completion, completion confirm, snippet expand and jump
--- " like VSCode: >
--- inoremap <silent><expr> <TAB>
---   \ coc#pum#visible() ? coc#_select_confirm() :
---   \ coc#expandableOrJumpable() ?
---   \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
---   \ <SID>check_back_space() ? "\<TAB>" :
---   \ coc#refresh()
---
--- function! s:check_back_space() abort
---   let col = col('.') - 1
---   return !col || getline('.')[col - 1]  =~# '\s'
--- endfunction
 --
 -- " vim:foldmethod=marker:foldlevel=0

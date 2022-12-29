@@ -3,9 +3,6 @@
 command Gpushforcewithlease :Gpush --force-with-lease
 nnoremap <leader>gpf :Gpushforcewithleas<CR>
 
-" fzf.vim
-nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
-
 map <S-q> :q<CR>   " doesn't work, use unimpaired mapings [q, ]q 
 
 " error navigation
@@ -64,10 +61,6 @@ nmap <silent> t<C-g> :TestVisit<CR>
 " nmap <silent> gy <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
 " nmap <silent> gr <Plug>(coc-references)
-
-" use leader leader to open CocCommand in CocFzf view
-nmap <silent> <leader><leader> :<C-u>CocFzfList<CR>
-nmap <silent> <leader>b        :<C-u>CocFzfList diagnostics --current-buf<CR>
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>

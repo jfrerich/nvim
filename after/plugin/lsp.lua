@@ -1,4 +1,8 @@
 local lsp = require('lsp-zero')
+
+local set = vim.keymap.set
+set("n", "<leader>ac", '<cmd>lua vim.lsp.buf.code_action()<CR>')
+
 lsp.preset('recommended')
 lsp.ensure_installed({
 	'tsserver',
