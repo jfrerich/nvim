@@ -58,10 +58,8 @@ set('v', '>', '>gv') -- better indentation.  doesn't lose visual selection
 -- nmap <silent> t<C-l> :TestLast<CR>
 -- nmap <silent> t<C-g> :TestVisit<CR>
 --
---
 -- " Use <CR> to confirm completion, use: >
 -- inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
---
 --
 -- " Use `[g` and `]g` to navigate diagnostics
 -- nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -74,7 +72,6 @@ set('v', '>', '>gv') -- better indentation.  doesn't lose visual selection
 -- " use leader leader to open CocCommand in CocFzf view
 -- nmap <silent> <leader><leader> :<C-u>CocFzfList<CR>
 -- nmap <silent> <leader>b        :<C-u>CocFzfList diagnostics --current-buf<CR>
---
 
 -- " Highlight symbol under cursor on CursorHold
 -- " The color is too dark, use vim-go for now
