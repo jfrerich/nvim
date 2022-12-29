@@ -1,13 +1,4 @@
-" add command and key map to force push git changes. (used after fugitive ce
-" command to edit last commit)
-command Gpushforcewithlease :Gpush --force-with-lease
-nnoremap <leader>gpf :Gpushforcewithleas<CR>
-
 map <S-q> :q<CR>   " doesn't work, use unimpaired mapings [q, ]q 
-
-" error navigation
-" map <C-N> :cnext<CR>   " doesn't work, use unimpaired mapings [q, ]q 
-" map <C-M> :cprevious<CR>
 
 " Alternate File 
 " nnoremap <leader>a :A<CR>
@@ -62,19 +53,9 @@ nmap <silent> t<C-g> :TestVisit<CR>
 " nmap <silent> gi <Plug>(coc-implementation)
 " nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
 " Highlight symbol under cursor on CursorHold
 " The color is too dark, use vim-go for now
 " autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 " comment out because I have <leader>a mapped to show alternate file
@@ -87,36 +68,11 @@ nmap <leader>rn <Plug>(coc-rename)
 " nmap <silent> <C-s> <Plug>(coc-range-select)
 " xmap <silent> <C-s> <Plug>(coc-range-select)
 
-" Remap for do codeAction of current line
-" nmap <leader>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-" nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Create mappings for function text object, requires document symbols feature of languageserver.
-" xmap if <Plug>(coc-funcobj-i)
-" omap if <Plug>(coc-funcobj-i)
-" xmap af <Plug>(coc-funcobj-a)
-" omap af <Plug>(coc-funcobj-a)
-" xmap ic <Plug>(coc-classobj-i)
-" omap ic <Plug>(coc-classobj-i)
-" xmap ac <Plug>(coc-classobj-a)
-" omap ac <Plug>(coc-classobj-a)
-
 " Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
 " keep hitting <C-d> to select next outter component
 " conflicts with <C-d> default Page Down command
 " nmap <silent> <C-d> <Plug>(coc-range-select)
 " xmap <silent> <C-d> <Plug>(coc-range-select)
-
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-" if has('nvim-0.4.0') || has('patch-8.2.0750')
-"   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-"   nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-"   inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-"   inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-"   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-"   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-" endif
 
 " Use `:Format` to format current buffer
 " command! -nargs=0 Format :call CocAction('format')
@@ -148,54 +104,3 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " coc-yank
 " nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    " call CocAction('doHover')
-    call CocAction('definitionHover') " include defintion provider
-  endif
-endfunction
-
-"FZF Buffer Delete
-function! s:list_buffers()
-  redir => list
-  silent ls
-  redir END
-  return split(list, "\n")
-endfunction
-
-function! s:delete_buffers(lines)
-  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
-endfunction
-
-command! BD call fzf#run(fzf#wrap({
-  \ 'source': s:list_buffers(),
-  \ 'sink*': { lines -> s:delete_buffers(lines) },
-  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
-\ }))
-
-" augroup mygroup
-"   autocmd!
-"   " Setup formatexpr specified filetype(s).
-"   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-"   " Update signature help on jump placeholder
-"   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-" augroup end
-
-" Map <tab> for trigger completion, completion confirm, snippet expand and jump
-" like VSCode: >
-" inoremap <silent><expr> <TAB>
-"   \ coc#pum#visible() ? coc#_select_confirm() :
-"   \ coc#expandableOrJumpable() ?
-"   \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-"   \ <SID>check_back_space() ? "\<TAB>" :
-"   \ coc#refresh()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" vim:foldmethod=marker:foldlevel=0
