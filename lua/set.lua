@@ -1,5 +1,5 @@
 vim.opt.number = true
--- set autowrite   -- automatically write file if you call :make - used for :GoBuild  
+-- set autowrite   -- automatically write file if you call :make - used for :GoBuild
 vim.opt.title = true
 
 vim.opt.tabstop = 4
@@ -7,7 +7,7 @@ vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 vim.opt.smarttab = true
 
-vim.opt.wrap = false    -- default to not wrap lines when opening a file
+vim.opt.wrap = false -- default to not wrap lines when opening a file
 vim.opt.swapfile = false
 
 vim.opt.hlsearch = true
@@ -16,9 +16,9 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 1
 
 vim.opt.termguicolors = true
-vim.opt.updatetime = 50  -- You will have bad experience for diagnostic messages when it's default 4000.
+vim.opt.updatetime = 50 -- You will have bad experience for diagnostic messages when it's default 4000.
 
-vim.opt.wildmode = {'longest:list'} -- help command-line
+vim.opt.wildmode = { 'longest:list' } -- help command-line
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true -- overrides ignorecase if uppercase used in search string
