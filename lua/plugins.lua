@@ -53,6 +53,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'neoclide/jsonc.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'folke/tokyonight.nvim'
+Plug 'rebelot/kanagawa.nvim'
 Plug 'HerringtonDarkholme/yats.vim'
 
 Plug 'mbbill/undotree'

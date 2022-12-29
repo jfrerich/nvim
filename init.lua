@@ -1,4 +1,3 @@
-
 -- vim.cmd('source $HOME/.config/nvim/vimrc.vim')
 
 require('plugins')
@@ -11,6 +10,7 @@ vim.cmd('source $HOME/.config/nvim/plugin_settings.vimrc')
 
 -- pull from vimrc.vim into this file 'init.lua'
 vim.cmd [[ colorscheme tokyonight-night ]]
+-- vim.cmd [[ colorscheme kanagawa ]]  -- has nice colors and helps identify returns
 
 -- vim.cmd [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
 vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float({scope="line"})]]
@@ -24,12 +24,12 @@ vim.cmd('ab _# ####################################')
 -- highlight go test file t.Run lines
 -- augroup go
 --   autocmd FileType go syntax match goTRun /t.Run.".*"/
---   highlight goTRun guifg=orange 
+--   highlight goTRun guifg=orange
 -- augroup END
 
 -- highlight js test file 'test()' lines
 -- autocmd FileType json syntax match Comment +\/\/.\+$+
--- 	highlight jsTest guifg=orange 
+-- 	highlight jsTest guifg=orange
 -- autocmd BufRead,BufNewFile *.tsx syntax match jsTest /.*test(.*/
 
 -- " Add some syntax highlighthing to jsx/tsx snapshots. xml does a decent job
@@ -66,20 +66,21 @@ vim.cmd('ab _# ####################################')
 -- "map P :PrintVariablesOneLine\
 --
 -- "####################################
--- " map ,# :s/^/#/<CR>:nohlsearch\\    -- " perl # comments
+-- " map ,# :s/^/#/<CR>:nohlsearch\\
+-- " perl # comments
 --
 -- " if exists('g:loaded_webdevicons')
 -- "     call webdevicons#refresh()
 -- " endif
 -- " let g:vim_jsx_pretty_colorful_config = 1 " default 0
 
--- let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '              
--- let g:webdevicons_conceal_nerdtree_brackets = 0               
--- let g:WebDevIconsUnicodeDecorateFolderNodes = 1               
--- let g:DevIconsEnableFoldersOpenClose = 1                      
--- let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1             
---                                                               
--- if exists('g:loaded_webdevicons')                             
---   call webdevicons#refresh()                                  
--- endif                                                         
+-- let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+-- let g:webdevicons_conceal_nerdtree_brackets = 0
+-- let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+-- let g:DevIconsEnableFoldersOpenClose = 1
+-- let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+--
+-- if exists('g:loaded_webdevicons')
+--   call webdevicons#refresh()
+-- endif
 --
