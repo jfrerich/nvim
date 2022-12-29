@@ -1,11 +1,12 @@
--- replacing keys.vimrc with keys.lua. 
+-- replacing keys.vimrc with keys.lua.
 -- remove from keys.vimrc after get it working in this file
 vim.g.mapleader = ","
 local set = vim.keymap.set
 
 set("n", ';', '<cmd>Buffers<CR>')
 
-set("n",  "ge",  '<cmd>NvimTreeToggle<CR>')
+set("n", "ge", '<cmd>NvimTreeToggle<CR>')
+set("n", "<leader>ac", '<cmd>lua vim.lsp.buf.code_action()<CR>')
 
 -- -- " terminal commands
 -- " tnoremap <Esc> <C-\><C-n>
@@ -59,27 +60,27 @@ set("v", 'y', 'ygv<Esc>')
 
 set('n', '<leader>n', '<cmd>nohlsearch<CR>')
 --
--- map <S-q> :q<CR>   " doesn't work, use unimpaired mapings [q, ]q 
+-- map <S-q> :q<CR>   " doesn't work, use unimpaired mapings [q, ]q
 --
 -- -- " error navigation
--- -- " map <C-N> :cnext<CR>   " doesn't work, use unimpaired mapings [q, ]q 
+-- -- " map <C-N> :cnext<CR>   " doesn't work, use unimpaired mapings [q, ]q
 -- -- " map <C-M> :cprevious<CR>
 --
--- -- " Alternate File 
+-- -- " Alternate File
 -- -- " nnoremap <leader>a :A<CR>
 -- -- " nnoremap <leader>a :cclose<CR>
 --
--- -- " quickfix 
+-- -- " quickfix
 -- nnoremap <Leader>q :Quickfix<CR>
 -- nnoremap <Leader>l :Quickfix!<CR>
 --
 -- -- " Folding
 -- -- " Enable folding with the spacebar
 -- nnoremap <space> zA
---  
+--
 -- vnoremap <c-a> :Inc<CR> " Increment by 1
-set('v', '<', '<gv')  -- better indentation.  doesn't lose visual selection
-set('v', '>', '>gv')  -- better indentation.  doesn't lose visual selection
+set('v', '<', '<gv') -- better indentation.  doesn't lose visual selection
+set('v', '>', '>gv') -- better indentation.  doesn't lose visual selection
 --
 -- " vim-asterisk
 -- map *   <Plug>(asterisk-z*)

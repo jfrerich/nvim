@@ -13,12 +13,12 @@ Plug 'epilande/vim-react-snippets'
 
 Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-unimpaired'
-Plug 'junegunn/vim-peekaboo' --  show vim registers window 
+Plug 'junegunn/vim-peekaboo' --  show vim registers window
 
 Plug 'preservim/tagbar'
-Plug('yuki-yano/fzf-preview.vim', {branch='release/rpc'})
-Plug('junegunn/fzf.vim', {['do'] = vim.fn['fzf#install']})
-Plug('junegunn/fzf') 
+Plug('yuki-yano/fzf-preview.vim', { branch = 'release/rpc' })
+Plug('junegunn/fzf.vim', { ['do'] = vim.fn['fzf#install'] })
+Plug('junegunn/fzf')
 
 Plug 'nvim-tree/nvim-web-devicons' --  optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
@@ -28,10 +28,11 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'folke/which-key.nvim'
 
-Plug('fatih/vim-go', {['do'] = vim.fn[':GoInstallBinaries']})
+Plug('fatih/vim-go', { ['do'] = vim.fn[':GoInstallBinaries'] })
 Plug 'buoto/gotests-vim'
+Plug('ray-x/go.nvim')
 
-Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn[':TSUpdate']})
+Plug('nvim-treesitter/nvim-treesitter', { ['do'] = vim.fn[':TSUpdate'] })
 Plug 'lewis6991/gitsigns.nvim'
 
 Plug 'ryanoasis/vim-devicons'
@@ -40,7 +41,7 @@ Plug 'vim-airline/vim-airline' -- status line
 Plug 'vim-airline/vim-airline-themes' -- status line themes
 
 Plug 'RRethy/nvim-treesitter-textsubjects'
-Plug('glepnir/lspsaga.nvim', {branch = 'main'})
+Plug('glepnir/lspsaga.nvim', { branch = 'main' })
 Plug 'tpope/vim-fugitive' -- git
 Plug 'junegunn/gv.vim' -- git
 Plug 'tpope/vim-rhubarb' --  needed for fugitive :Gbrowse
@@ -113,7 +114,7 @@ vim.call('plug#end')
 --  Plug 'projekt0n/github-nvim-theme'
 --  Plug 'christianchiarulli/nvcode-color-schemes.vim'
 --  Plug 'tamelion/neovim-molokai'
---  Plug 'olimorris/onedarkpro.nvim' 
+--  Plug 'olimorris/onedarkpro.nvim'
 --  Plug 'mhartington/oceanic-next'
 --  Plug 'ellisonleao/gruvbox.nvim'
 --  Plug 'patstockwell/vim-monokai-tasty'
@@ -176,7 +177,7 @@ vim.call('plug#end')
 -- Plug 'vim_IDE.vim'
 -- Plug 'bling/vim-bufferline'
 -- Plug 'tmhedberg/SimpylFold'
--- Bundle 'Valloric/YouCompleteMe' 
+-- Bundle 'Valloric/YouCompleteMe'
 -- Plug 'dense-analysis/ale'
 
 --  --- PLUGINS not managed by vundle
