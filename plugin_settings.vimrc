@@ -226,15 +226,6 @@ command! -bang -nargs=* Rg
 " \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
 " \   fzf#vim#with_preview(), <bang>0)
 
-" EasyMotion
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
-let g:EasyMotion_smartcase = 1 " Turn on case insensitive feature
-nmap s <Plug>(easymotion-overwin-f)
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
 " autocmd FileType javascript set formatprg=prettier\ --stdin
 " autocmd BufWritePre *.js :normal gggqG
 " autocmd BufWritePre *.jsx,*.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
