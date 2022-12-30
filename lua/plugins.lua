@@ -24,6 +24,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mbbill/undotree'
 Plug 'junegunn/vim-peekaboo' --  show vim registers window
+Plug 'haya14busa/vim-asterisk'
 
 -- nvim plugins
 Plug 'numToStr/Comment.nvim'
@@ -37,7 +38,6 @@ Plug 'tpope/vim-fugitive' -- git
 Plug 'junegunn/gv.vim' -- git
 Plug 'tpope/vim-rhubarb' --  needed for fugitive :Gbrowse
 
-Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-unimpaired'
 
 Plug 'preservim/tagbar'
