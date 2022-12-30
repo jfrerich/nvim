@@ -2,21 +2,46 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.local/share/nvim/plugged')
 
+-- color schemes
+Plug 'folke/tokyonight.nvim'
+Plug 'rebelot/kanagawa.nvim'
+
+-- random useful
 Plug 'tpope/vim-repeat'
 Plug 'tomtom/tComment_vim'
-Plug 'numToStr/Comment.nvim'
-
+Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
-Plug 'p00f/nvim-ts-rainbow'
+Plug 'ryanoasis/vim-devicons'
+Plug 'powerline/powerline-fonts'
+Plug 'vim-airline/vim-airline' -- status line
+Plug 'vim-airline/vim-airline-themes' -- status line themes
+Plug 'bergercookie/vim-debugstring'
+Plug 'will133/vim-dirdiff'
+Plug 'dbeniamine/cheat.sh-vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'neoclide/jsonc.vim'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mbbill/undotree'
+Plug 'junegunn/vim-peekaboo' --  show vim registers window
 
-Plug 'honza/vim-snippets'
-Plug 'epilande/vim-react-snippets'
+-- nvim plugins
+Plug 'numToStr/Comment.nvim'
+Plug 'windwp/nvim-autopairs'
+Plug 'p00f/nvim-ts-rainbow'
+Plug 'folke/which-key.nvim'
+
+-- git
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'tpope/vim-fugitive' -- git
+Plug 'junegunn/gv.vim' -- git
+Plug 'tpope/vim-rhubarb' --  needed for fugitive :Gbrowse
 
 Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-unimpaired'
-Plug 'junegunn/vim-peekaboo' --  show vim registers window
 
 Plug 'preservim/tagbar'
+
 Plug('yuki-yano/fzf-preview.vim', { branch = 'release/rpc' })
 Plug('junegunn/fzf.vim', { ['do'] = vim.fn['fzf#install'] })
 Plug('junegunn/fzf')
@@ -25,44 +50,23 @@ Plug('ibhagwan/fzf-lua')
 Plug 'nvim-tree/nvim-web-devicons' --  optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
 
-Plug 'easymotion/vim-easymotion'
-
-Plug 'folke/which-key.nvim'
-
 Plug('fatih/vim-go', { ['do'] = vim.fn[':GoInstallBinaries'] })
 Plug 'buoto/gotests-vim'
 Plug('ray-x/go.nvim')
 
-Plug('nvim-treesitter/nvim-treesitter', { ['do'] = vim.fn[':TSUpdate'] })
-Plug 'lewis6991/gitsigns.nvim'
+Plug('ray-x/lsp_signature.nvim')
 
-Plug 'ryanoasis/vim-devicons'
-Plug 'powerline/powerline-fonts'
-Plug 'vim-airline/vim-airline' -- status line
-Plug 'vim-airline/vim-airline-themes' -- status line themes
+Plug('nvim-treesitter/nvim-treesitter', { ['do'] = vim.fn[':TSUpdate'] })
 
 Plug 'RRethy/nvim-treesitter-textsubjects'
 Plug('glepnir/lspsaga.nvim', { branch = 'main' })
-Plug 'tpope/vim-fugitive' -- git
-Plug 'junegunn/gv.vim' -- git
-Plug 'tpope/vim-rhubarb' --  needed for fugitive :Gbrowse
 
-Plug 'bergercookie/vim-debugstring'
-Plug 'will133/vim-dirdiff'
-Plug 'dbeniamine/cheat.sh-vim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'neoclide/jsonc.vim'
-Plug 'rbgrouleff/bclose.vim'
-Plug 'folke/tokyonight.nvim'
-Plug 'rebelot/kanagawa.nvim'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'windwp/nvim-autopairs'
-Plug 'mbbill/undotree'
 
 --  LSP Support
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'VonHeikemen/lsp-zero.nvim'
 
 --  Autocompletion
 Plug 'onsails/lspkind-nvim'
@@ -76,13 +80,8 @@ Plug 'hrsh7th/cmp-nvim-lua'
 --  Snippets
 Plug 'L3MON4D3/LuaSnip'
 Plug 'rafamadriz/friendly-snippets'
-
-Plug 'VonHeikemen/lsp-zero.nvim'
-
--- Plug 'mofiqul/dracula.nvim'
--- Plug 'pangloss/vim-javascript'
--- Plug 'leafgarland/typescript-vim'
--- Plug 'maxmellon/vim-jsx-pretty'
+Plug 'honza/vim-snippets'
+Plug 'epilande/vim-react-snippets'
 
 vim.call('plug#end')
 
