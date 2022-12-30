@@ -8,14 +8,11 @@ vim.cmd('source $HOME/.config/nvim/myplugins/*.vim') -- my Plugins and key maps 
 vim.cmd('source $HOME/.config/nvim/keys.vimrc')
 vim.cmd('source $HOME/.config/nvim/plugin_settings.vimrc')
 
--- pull from vimrc.vim into this file 'init.lua'
 vim.cmd [[ colorscheme tokyonight-night ]]
 -- vim.cmd [[ colorscheme kanagawa ]]  -- has nice colors and helps identify returns
 
--- vim.cmd [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
 vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float({scope="line"})]]
 vim.cmd [[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
-
 
 vim.cmd('ab _" "####################################')
 vim.cmd('ab _* *########################################################################')
