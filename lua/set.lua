@@ -23,6 +23,10 @@ vim.opt.wildmode = { 'longest:list' } -- help command-line
 vim.opt.ignorecase = true
 vim.opt.smartcase = true -- overrides ignorecase if uppercase used in search string
 
+-- Some servers have issues with backup files, see #649
+vim.opt.backup = false
+vim.opt.write = false
+
 -- vim.opt.foldmethod = 'expr'
 -- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 

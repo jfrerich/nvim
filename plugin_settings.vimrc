@@ -164,22 +164,6 @@ endfunction
 
 autocmd VimEnter * call AirlineInit()
 
-" Some servers have issues with backup files, see #649
-set nobackup
-set nowritebackup
-
-" Better display for messages
-"jaf set cmdheight=2
-
-" You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
-
-" don't give |ins-completion-menu| messages.
-" set shortmess+=c
-
-" always show signcolumns
-" set signcolumn=yes
-
 " UltiSnips
 " Ultisnips - /Users/jfrerich/dotfiles/vim/.vim/bundle/vim-snippets/UltiSnips/go.snippets
 " snippets (SnipMate) - /Users/jfrerich/dotfiles/vim/.vim/bundle/vim-snippets/snippets.snippets
@@ -234,9 +218,6 @@ command! -bang -nargs=* Rg
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 " let g:poppy_point_enable = 1
-
-" cheat.sh
-let g:CheatSheetDefaultMode = 2
 
 let g:explDetailedList=1 " show delailed list of files (ie. size, date)
 let g:Perl_PerlRegexAnalyser = 'yes'
