@@ -56,7 +56,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'folke/tokyonight.nvim'
 Plug 'rebelot/kanagawa.nvim'
 Plug 'HerringtonDarkholme/yats.vim'
-
+Plug 'windwp/nvim-autopairs'
 Plug 'mbbill/undotree'
 
 --  LSP Support
