@@ -5,7 +5,6 @@ require('keys')
 require('set')
 
 vim.cmd('source $HOME/.config/nvim/myplugins/*.vim') -- my Plugins and key maps for myplugins
-vim.cmd('source $HOME/.config/nvim/keys.vimrc')
 vim.cmd('source $HOME/.config/nvim/plugin_settings.vimrc')
 
 vim.cmd [[ colorscheme tokyonight-night ]]
