@@ -29,8 +29,7 @@ set('n', '<leader>q', ':Quickfix<CR>')
 set('n', '<leader>l', ':Quickfix!<CR>')
 
 -- Folding
--- Enable folding with the spacebar
-set('n', '<space>', 'zA')
+set('n', '<space>', 'zA') -- Enable folding with the spacebar
 
 set('n', '<c-a>', ':Inc<CR>') -- Increment by 1
 
