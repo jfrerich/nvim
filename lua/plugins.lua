@@ -40,8 +40,6 @@ Plug 'tpope/vim-rhubarb' --  needed for fugitive :Gbrowse
 
 Plug 'tpope/vim-unimpaired'
 
-Plug 'preservim/tagbar'
-
 Plug('yuki-yano/fzf-preview.vim', { branch = 'release/rpc' })
 Plug('junegunn/fzf.vim', { ['do'] = vim.fn['fzf#install'] })
 Plug('junegunn/fzf')
