@@ -29,8 +29,11 @@ Plug 'haya14busa/vim-asterisk'
 Plug('phaazon/hop.nvim', { branch = 'v2' })
 Plug 'numToStr/Comment.nvim'
 Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'folke/which-key.nvim'
+Plug 'RRethy/vim-illuminate'
+
 
 -- git
 Plug 'lewis6991/gitsigns.nvim'
