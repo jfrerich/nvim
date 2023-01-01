@@ -7,7 +7,10 @@ vim.opt.termguicolors = true
 
 -- empty setup using defaults
 require("nvim-tree").setup({
-	highlight_git = true,
+	modified = true,
+	update_focused_file = {
+		enable = true
+	},
 	view = {
 		adaptive_size = true,
 		mappings = {
@@ -28,6 +31,9 @@ require("nvim-tree").setup({
 			restrict_above_cwd = true,
 		},
 	},
+	filters = {
+		dotfiles = true,
+	},
 	renderer = {
 		full_name = true,
 		group_empty = true,
@@ -37,10 +43,10 @@ require("nvim-tree").setup({
 			enable = true,
 		},
 		icons = {
-			git_placement = "signcolumn",
+			git_placement = "after",
 			show = {
 				file = true,
-				folder = false,
+				folder = true,
 				folder_arrow = false,
 				git = true,
 			},
