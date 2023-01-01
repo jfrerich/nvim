@@ -9,7 +9,6 @@ Plug 'rebelot/kanagawa.nvim'
 -- random useful
 Plug 'tpope/vim-repeat'
 Plug 'tomtom/tComment_vim'
-Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 Plug 'powerline/powerline-fonts'
@@ -27,6 +26,7 @@ Plug 'junegunn/vim-peekaboo' --  show vim registers window
 Plug 'haya14busa/vim-asterisk'
 
 -- nvim plugins
+Plug('phaazon/hop.nvim', { branch = 'v2' })
 Plug 'numToStr/Comment.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'p00f/nvim-ts-rainbow'

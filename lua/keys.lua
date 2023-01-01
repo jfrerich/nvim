@@ -46,10 +46,8 @@ set('n', '#', '<Plug>(asterisk-z#)')
 set('n', 'g*', '<Plug>(asterisk-gz*)')
 set('n', 'g#', '<Plug>(asterisk-gz#)')
 
--- EasyMotion
-set('n', 's', '<Plug>(easymotion-overwin-f)')
-set('n', '<Leader>j', '<Plug>(easymotion-j)') -- line motion above cursor line
-set('n', '<Leader>k', '<Plug>(easymotion-k)') -- line motion below cursor line
+-- Hop - EasyMotion replacement
+set('n', 's', ':HopChar1<CR>')
 
 -- terminal commands
 -- tnoremap <Esc> <C-\><C-n>
