@@ -34,6 +34,10 @@ Plug 'p00f/nvim-ts-rainbow'
 Plug 'folke/which-key.nvim'
 Plug 'RRethy/vim-illuminate'
 
+-- todo comments
+Plug 'nvim-lua/plenary.nvim'
+Plug 'folke/todo-comments.nvim'
+
 
 -- git
 Plug 'lewis6991/gitsigns.nvim'
