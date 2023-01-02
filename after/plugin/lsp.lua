@@ -4,13 +4,19 @@ local set = vim.keymap.set
 set("n", "<leader>ac", '<cmd>lua vim.lsp.buf.code_action()<CR>')
 set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
 
-
 lsp.preset('recommended')
 lsp.ensure_installed({
 	'tsserver',
 	'eslint',
 	'sumneko_lua',
 })
+lsp.on_attach(function(client, bufnr)
+  local opts = {buffer = bufnr, remap = false}
+  local bind = vim.keymap.set
+
+  bind('n', 'gr', '<cmd>:FzfLua lsp_references<CR>', opts)
+  -- more code  ...
+end)
 lsp.setup()
 
 local lspconfig = require('lspconfig')
