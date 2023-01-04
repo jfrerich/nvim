@@ -24,6 +24,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mbbill/undotree'
 Plug 'junegunn/vim-peekaboo' --  show vim registers window
 Plug 'haya14busa/vim-asterisk'
+Plug 'farmergreg/vim-lastplace'
 
 -- nvim plugins
 Plug('phaazon/hop.nvim', { branch = 'v2' })
