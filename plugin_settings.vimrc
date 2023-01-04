@@ -54,7 +54,7 @@ augroup go
   "
 augroup END
 
-nnoremap <silent> <leader>      :<c-u>WhichKey ','<CR>
+" nnoremap <silent> <leader>      :<c-u>WhichKey ','<CR>
 
 " use only quickfix list, never location list
 let g:go_list_type = "quickfix"
