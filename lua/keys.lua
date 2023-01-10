@@ -49,6 +49,15 @@ map('n', 'g#', '<Plug>(asterisk-gz#)')
 -- Hop - EasyMotion replacement
 map('n', 's', ':HopChar1<CR>')
 
+vim.cmd [[
+ let g:neovide_scale_factor=1.0
+ function! ChangeScaleFactor(delta)
+     let g:neovide_scale_factor = g:neovide_scale_factor * a:delta
+ endfunction
+ nnoremap <expr><C-=> ChangeScaleFactor(1.1)
+ nnoremap <expr><C--> ChangeScaleFactor(1/1.1)
+]]
+
 -- terminal commands
 -- tnoremap <Esc> <C-\><C-n>
 
