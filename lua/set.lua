@@ -18,6 +18,7 @@ vim.opt.scrolloff = 1
 vim.opt.termguicolors = true
 vim.opt.updatetime = 50 -- You will have bad experience for diagnostic messages when it's default 4000.
 
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.wildmode = { 'longest:list' } -- help command-line
 
 vim.opt.ignorecase = true
