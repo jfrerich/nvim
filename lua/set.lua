@@ -28,34 +28,36 @@ vim.opt.smartcase = true -- overrides ignorecase if uppercase used in search str
 vim.opt.backup = false
 -- vim.opt.write = false
 
+vim.opt.undofile = true -- persist undos when reopen a file
+
+vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
+vim.opt.shortmess:append('c')
+
 -- vim.opt.foldmethod = 'expr'
 -- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- vim.opt.encoding=UTF-8
 -- vim.opt.expandtab
 -- vim.opt.nofoldenable
--- vim.opt.clipboard+=unnamedplus
 -- vim.opt.cmdheight=1 " Better display for messages
 -- vim.opt.shortmess+=c " don't give |ins-completion-menu| messages.
 -- vim.opt.textwidth=79
--- vim.opt.shell=/bin/zsh
 -- vim.opt.noscrollbind
 -- vim.opt.nocursorbind
 -- vim.opt.formatoptions-=a      " auto formatting of paragraphs
 -- vim.opt.formatoptions+=j      " delete comment characters when joining lines
--- vim.opt.nosol                 " no start of line. when in Visual and do Cntl-D or G, don't go to start of line, but keep in same column
 -- vim.opt.winaltkeys=no " Disable menu accelerators.  The Alt key that activates the menu interfere with the Brief key mappings.
 -- vim.opt.ruler                " show row, column, and % file in bottom right corner
--- vim.opt.completeopt=menu
 -- vim.opt.completeopt+=preview
 -- vim.opt.csprg=/opt/local/bin/cscope
 -- vim.opt.undodir=$HOME/.config/nvim/.vim-undo-dir
--- vim.opt.undofile
 -- vim.opt.nocompatible              " required
 
 -- Doesn't seem to be needed in neovim
+-- vim.opt.nosol                 " no start of line. when in Visual and do Cntl-D or G, don't go to start of line, but keep in same column
+-- vim.opt.shell=/bin/zsh
 -- vim.opt.hidden                " can write a buffer, bring up another, go back to original, and undo will work
--- vim.opt.showmatch             " briefly show matching (,[,{
+-- vim.opt.showmatch = true -- briefly show matching (,[,{
 -- vim.opt.visualbell            " turn off visual bell
 -- vim.opt.noerrorbells          " turn off error bells
 -- vim.opt.guioptions=           " don't show scrollbars or menu bar"
