@@ -1,6 +1,7 @@
 -- Set up nvim-cmp.
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 local has_words_before = function()
 	unpack = unpack or table.unpack
@@ -8,8 +9,35 @@ local has_words_before = function()
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-
 cmp.setup({
+	formatting = {
+		format = function(entry, vim_item)
+			-- fancy icons and a name of kind
+			vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
+
+			-- set a name for each source
+			vim_item.menu = ({
+				buffer = "[Buffer]",
+				path = "[Path]",
+				nvim_lsp = "[LSP]",
+				nvim_lua = "[Lua]",
+				calc = "[Calc]",
+				emoji = "[Emoji]",
+				ultisnips = "[UltiSnips]",
+				cmp_tabnine = "[TabNine]",
+			})[entry.source.name]
+
+			return vim_item
+		end,
+	},
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp", max_item_count = 30 }, -- tsserver likes to send back _everything_
+		{ name = "luasnip", option = { use_show_condition = true } },
+		{ name = "nvim_lsp_signature_help" },
+		{ name = "nvim_lua" },
+		{ name = "path" },
+		{ name = "buffer", keyword_length = 3 }, -- don't complete from buffer right away
+	}, {name = 'buffer'}),
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
@@ -24,9 +52,12 @@ cmp.setup({
 		-- documentation = cmp.config.window.bordered(),
 	},
 	mapping = cmp.mapping.preset.insert({
+		['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+		['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+		['<C-y>'] = cmp.mapping.confirm({ select = true }),
+		["<C-Space>"] = cmp.mapping.complete(),
 		['<C-b>'] = cmp.mapping.scroll_docs(-4),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
-		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.abort(),
 		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 		["<Tab>"] = cmp.mapping(function(fallback)
@@ -50,18 +81,6 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 	}),
-	--
-	-- 	-- ... Your other mappings ...
-	-- },
-	sources = cmp.config.sources({
-		{ name = 'luasnip' }, -- For luasnip users.
-		{ name = 'nvim_lsp' },
-		-- { name = 'vsnip' }, -- For vsnip users.
-		-- { name = 'ultisnips' }, -- For ultisnips users.
-		-- { name = 'snippy' }, -- For snippy users.
-	}, {
-		{ name = 'buffer' },
-	})
 })
 
 -- Set configuration for specific filetype.
@@ -75,10 +94,7 @@ cmp.setup.filetype('gitcommit', {
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
-	mapping = cmp.mapping.preset.cmdline({
-		['<C-n>'] = cmp.select_next_item(),
-		['<C-p>'] = cmp.select_prev_item(),
-	}),
+	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
 		{ name = 'buffer' }
 	}
