@@ -34,6 +34,7 @@ Plug 'windwp/nvim-ts-autotag'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'folke/which-key.nvim'
 Plug 'RRethy/vim-illuminate'
+Plug('nvim-telescope/telescope.nvim', { tag = '0.1.0' })
 
 -- todo comments
 Plug 'nvim-lua/plenary.nvim'
@@ -45,6 +46,7 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive' -- git
 Plug 'junegunn/gv.vim' -- git
 Plug 'tpope/vim-rhubarb' --  needed for fugitive :Gbrowse
+Plug 'kdheepak/lazygit.nvim'
 
 Plug 'tpope/vim-unimpaired'
 
@@ -60,13 +62,12 @@ Plug('fatih/vim-go', { ['do'] = vim.fn[':GoInstallBinaries'] })
 Plug 'buoto/gotests-vim'
 Plug('ray-x/go.nvim')
 
-Plug('ray-x/lsp_signature.nvim')
-
 Plug('nvim-treesitter/nvim-treesitter', { ['do'] = vim.fn[':TSUpdate'] })
-
 Plug 'RRethy/nvim-treesitter-textsubjects'
-Plug('glepnir/lspsaga.nvim', { branch = 'main' })
 
+--  chatGPT
+-- Plug 'jackMort/ChatGPT.nvim'
+-- Plug 'MunifTanjim/nui.nvim'
 
 --  LSP Support
 Plug 'neovim/nvim-lspconfig'
@@ -89,6 +90,12 @@ Plug 'rafamadriz/friendly-snippets'
 Plug 'honza/vim-snippets'
 Plug 'epilande/vim-react-snippets'
 
+-- Plugins to think about adding
+-- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils
+-- https://github.com/tpope/vim-abolish
+-- https://github.com/ThePrimeagen/vim-be-good
+-- https://github.com/zbirenbaum/copilot.lua
+--
 vim.call('plug#end')
 
 --  Plug 'SirVer/ultisnips'
