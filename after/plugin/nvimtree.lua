@@ -37,6 +37,9 @@ require("nvim-tree").setup({
 	renderer = {
 		full_name = true,
 		group_empty = true,
+		highlight_git = true,
+		highlight_modified = "all",
+		highlight_opened_files = "all",
 		special_files = {},
 		symlink_destination = false,
 		indent_markers = {
