@@ -32,6 +32,11 @@ ls.config.set_config({
 		parse = require("luasnip.util.parser").parse_snippet,
 	},
 })
+
+ls.filetype_extend("javascriptreact", { "javascript" })
+ls.filetype_extend("typescriptreact", { "javascript" })
+ls.filetype_extend("typescript", { "javascript" })
+
 require("luasnip/loaders/from_lua").lazy_load()
 require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets" })
 
